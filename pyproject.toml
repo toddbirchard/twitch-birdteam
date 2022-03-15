@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "Twitch BircTeam"
+version = "0.1.0"
+description = "Twitch API wrapper to serve as chatbot, event handler, & webhooks."
+authors = ["Todd Birchard <toddbirchard@gmail.com>"]
+maintainers = ["Todd Birchard <toddbirchard@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/toddbirchard/twitch-birdteam/"
+repository = "https://github.com/toddbirchard/twitch-birdteam/"
+keywords = [
+  "Twitch",
+  "Bot",
+  "Event Handler",
+  "Moderation",
+  "Stream Management"
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+asyncio = "*"
+twitchio = "*"
+requests = "*"
+loguru = "*"
+python-dotenv = "*"
+uvicorn = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+mypy = "*"
+black = "*"
+isort = "*"
+
+[tool.poetry.scripts]
+run = "twitch_bot:init_bot"
+
+[tool.poetry.urls]
+issues = "https://github.com/toddbirchard/twitch-birdteam/issues"
+
+[build-system]
+requires = ["poetry>=1.1.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.isort]
+profile = "black"
+src_paths = ["buymeacoffee"]
+
+[tool.black]
+line-length = 80
+
+[tool.pylint.'MESSAGES CONTROL']
+disable="C0103,C0301,W0703,W0621"
