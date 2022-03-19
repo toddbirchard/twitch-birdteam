@@ -1,5 +1,10 @@
 import twitchio
-from config import TWITCH_CALLBACK_ROUTE, TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET
+from config import (
+    TWITCH_BROADCASTER_ID,
+    TWITCH_CALLBACK_ROUTE,
+    TWITCH_CLIENT_ID,
+    TWITCH_CLIENT_SECRET,
+)
 from twitchio.ext import commands, eventsub
 
 esbot = commands.Bot.from_client_credentials(
@@ -17,7 +22,9 @@ class Bot(commands.Bot):
     async def __ainit__(self) -> None:
         self.loop.create_task(esclient.listen(port=4000))
         try:
-            await esclient.subscribe_channel_follows(broadcaster=channel_ID)
+            await esclient.subscribe_channel_follows(
+                broadcaster=TWITCH_BROADCASTER_ID
+            )
         except twitchio.HTTPException:
             pass
 

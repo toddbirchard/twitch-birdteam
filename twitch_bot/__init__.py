@@ -1,3 +1,4 @@
+"""Initialize Twitch chat bot."""
 from twitch_bot.bot import Bot
 
 
